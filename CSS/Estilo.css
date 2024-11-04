@@ -1,0 +1,67 @@
+
+/*! Contenedor principal para centrar ambos formularios */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Espacio entre form1 y form2 */
+    margin-top: 50px;
+}
+
+/* Estilos generales para form1 */
+#form1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los botones en form1 */
+#form1 input[type="button"] {
+    font-size: 1.5em;
+    padding: 20px;
+    background-color: #7e807e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#form1 input[type="button"]:hover {
+    background-color: #c3c3ef;
+}
+
+/* Estilos de form2, como antes */
+#form2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+#form2 input[type="button"] {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #3365d0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#form2 input[type="button"]:hover {
+    background-color: #e33232;
+}
