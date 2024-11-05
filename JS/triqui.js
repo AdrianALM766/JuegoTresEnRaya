@@ -1,13 +1,8 @@
 let sw = 0;
-let botonesPresionados = 0; // Contador de botones presionados
-
+let botonesPresionados = 0; // Contador de botones presionados, esto es para cuando necesite saber cual boton a sido presionado
 
 function reiniciarJuego() {
-    // Recorrer todos los botones para restablecerlos
-    for (let i = 1; i <= 9; i++) {
-        document.form1["boton" + i].value = ""; //quita las x o las o que esten en el tricki
-        document.form1["boton" + i].disabled = false; // esto es para habilitar el boton
-    }
+    location.reload(); // Recarga la página actual
 }
 
 function checkAllButtonsPressed() {
@@ -30,6 +25,24 @@ function pressButton(button) {
         checkAllButtonsPressed(); // Verifica si todos los botones han sido presionados
     }
 }
+
+function UnSoloJugador() {
+    // Crear una lista de botones no presionados
+    let botonesLibres = [];
+    for (let i = 1; i <= 9; i++) {
+        if (document.form1["boton" + i].value === "") {
+            botonesLibres.push(document.form1["boton" + i]);
+        }
+    }
+
+    // Si hay botones libres, seleccionar uno al azar
+    if (botonesLibres.length > 0) {
+        let botonAleatorio = botonesLibres[Math.floor(Math.random() * botonesLibres.length)];
+        pressButton(botonAleatorio); // Presionar el botón seleccionado aleatoriamente
+        ganador(); // Verificar si hay un ganador después de presionar el botón
+    }
+}
+
 
 function b1() { pressButton(document.form1.boton1); ganador(); }
 function b2() { pressButton(document.form1.boton2); ganador(); }
