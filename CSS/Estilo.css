@@ -2,16 +2,16 @@
 /*! Contenedor principal para centrar ambos formularios */
 .contenedor-principal {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;/*Alinea los hijos del contenedor uno debajo del otro*/
     align-items: center;
     gap: 50px; /* Espacio entre form1 y form2 */
     margin-top: 50px;
 }
 
-/* Estilos generales para form1 */
+/* Estilos para el formulario form1 */
 #form1 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: grid; /*Establece el fromulario en un diseño de cuadricula*/
+    grid-template-columns: repeat(3, 1fr); /*Divide la cuadricula en tres columnas*/
     gap: 5px;
     width: 300px;
     padding: 10px;
@@ -20,23 +20,24 @@
     background-color: #f9f9f9;
 }
 
-/* Estilos para los botones en form1 */
+/* Estilos para los botones en el formulario form1 */
 #form1 input[type="button"] {
-    font-size: 1.5em;
+    font-size: 1.5em; /*Tamaño de las letras*/
     padding: 20px;
     background-color: #7e807e;
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer; /*Hace que cuando pase el cursor este se convierta en una manita*/
+    transition: background-color 0.3s ease; /*Esta parte agrega un efecto de transicion suave al pasar el cursor*/
 }
 
+/*Cambia el color de fondo de los botones cuando se pasa el cursor encima*/
 #form1 input[type="button"]:hover {
     background-color: #c3c3ef;
 }
 
-/* Estilos de form2, como antes */
+/*! Estilos de form2 */
 #form2 {
     display: flex;
     flex-direction: column;
@@ -49,7 +50,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
 }
-
+/*? esto es lo mismo para los botones del formulario 1 pero los colores son diferentes*/
 #form2 input[type="button"] {
     font-size: 1em;
     padding: 10px 20px;

@@ -1,33 +1,35 @@
-let sw = 0;
-let botonesPresionados = 0; // Contador de botones presionados, esto es para cuando necesite saber cual boton a sido presionado
+let sw = 0; //! interruptor que alterna entre 0 y 1
+let botonesPresionados = 0; //un contador que registra el numero total de botones presionados
 
+//! Esta funcion recarga la pagina, lo cual reestablece el juego
 function reiniciarJuego() {
-    location.reload(); // Recarga la página actual
+    location.reload();
 }
 
 function checkAllButtonsPressed() {
-    if (botonesPresionados === 9) { // Hay 9 botones en total
+    if (botonesPresionados === 9) { //? verifica si hay botones no presionados
         alert("¡El juego a finalizado!");
     }
 }
 
 function pressButton(button) {
-    if (button.value === "") {
+    if (button.value === "") { //! verifica si el boton a sido presionado
         if (sw == 0) {
             button.value = "X";
-            sw = 1;
+            sw = 1; //cambia el valor a 1 
         } else {
             button.value = "O";
-            sw = 0;
+            sw = 0; //cambia el valor a 0
         }
-        button.disabled = true; // Deshabilita el botón
-        botonesPresionados++; // Incrementa el contador
-        checkAllButtonsPressed(); // Verifica si todos los botones han sido presionados
+        button.disabled = true; // Deshabilita el botón una vez ya presionado
+        botonesPresionados++; //! Incrementa el contador de botones presionados
+        checkAllButtonsPressed(); //? llamada a la funcion checkAllButtonPressed()
     }
 }
 
+//! esta funcion implementa la logica para el modo de un solo jugador
 function UnSoloJugador() {
-    // Crear una lista de botones no presionados
+    // Crear una lista de botones no presionados hasta el momento
     let botonesLibres = [];
     for (let i = 1; i <= 9; i++) {
         if (document.form1["boton" + i].value === "") {
@@ -54,6 +56,7 @@ function b7() { pressButton(document.form1.boton7); ganador(); }
 function b8() { pressButton(document.form1.boton8); ganador(); }
 function b9() { pressButton(document.form1.boton9); ganador(); }
 
+//! esta funcion verifica si hay un gandor en el tablero, viendo todas las formas posibles en las que se puede ganar en tres en raya
 function ganador() {
     //! Verificar filas
     if (document.form1.boton1.value === document.form1.boton2.value && 
